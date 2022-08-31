@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    >
+    <TextView
+        android:id = "@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize = "15dp"
+        android:text = "ㅎㅇ"
+        android:paddingBottom = "10dp"
+        ></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize = "18dp"
+        android:paddingBottom = "10dp"
+        android:text = "How was your day?"
+        ></TextView>
+    <!-- 색상 변경 튤    -->
+    <EditText
+        android:layout_width = "match_parent"
+        android:layout_height = "200dp"
+        android:background = "#EBE6F4"
+        android:id = "@+id/editDiary"
+        android:textSize = "18dp"
+        ></EditText>
+
+</LinearLayout>
