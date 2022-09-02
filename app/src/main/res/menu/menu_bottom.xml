@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/board"
+        android:icon="@drawable/talking"
+        android:title="게시판"
+        app:showAsAction = "always"/>
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction = "always"/>
+
+    <item
+        android:id="@+id/my"
+        android:icon="@drawable/settings"
+        android:title="My"
+        app:showAsAction = "always" />
+</menu>
