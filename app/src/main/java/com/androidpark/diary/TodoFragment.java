@@ -27,7 +27,7 @@ public class TodoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view  = (ViewGroup)inflater.inflate(R.layout.fragment_todo,container,false);
+        view  = (ViewGroup)inflater.inflate(R.layout.fragment_todo,container,true);
         final ArrayList<String> todoList = new ArrayList<String>();
         ListView list = view.findViewById(R.id.listView);
 

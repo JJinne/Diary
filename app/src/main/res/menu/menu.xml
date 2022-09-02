@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/calendar"
-        android:icon ="@drawable/home"
-        android:title="Home"
+        android:icon ="@drawable/calendar"
+        android:title="Calendar"
         ></item>
     <item
         android:id="@+id/todo"

@@ -7,17 +7,30 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id = "@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity = "top"
         app:menu="@menu/menu"
-        ></com.google.android.material.bottomnavigation.BottomNavigationView>
+        ></com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight = "1"
         tools:ignore="Suspicious0dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="unlabeled"
+        android:background="?android:attr/windowBackground"
+        app:itemIconTint="@color/material_dynamic_neutral_variant20"
+        app:itemTextColor="@color/material_on_background_emphasis_medium"
+        app:menu="@menu/menu_bottom" />
 
 </LinearLayout>

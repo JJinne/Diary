@@ -1,6 +1,8 @@
 package com.androidpark.diary;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,21 +26,22 @@ import java.util.Date;
 
 
 public class CalendarFragment extends Fragment {
-
-    private ViewGroup view;
-    private ImageButton btndiary;
-    private EditText editDiary;
+    ViewGroup view;
+    EditText editDiary;
     TextView daytext;
     View dialogView;
     CalendarView calendarView;
-    int selectYear,selectMonth,selectDay;
-    String selectDate;
+
+    private int selectYear,selectMonth,selectDay; // 선택된 년도,월,날
+    private String selectDate; //선택된 날짜 저장될 변수
     private SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/M/d"); // 날짜 포맷
+    private String inputDiary;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view  = (ViewGroup)inflater.inflate(R.layout.fragment_calendar,container,false);
+        view  = (ViewGroup)inflater.inflate(R.layout.fragment_calendar,container,true);
 
         calendarView = view.findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -53,14 +56,15 @@ public class CalendarFragment extends Fragment {
                         + "." + Integer.toString(selectDay);
             }
         });
+
         FloatingActionButton btndiary = view.findViewById(R.id.writeDiary);
         btndiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //메시지 상자
                 dialogView = (View) View.inflate(getContext(),R.layout.diary_dialong1,null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
+
                 daytext = dialogView.findViewById(R.id.day);
                 if(selectDate !=null ){
                     daytext.setText(selectDate);
@@ -70,9 +74,18 @@ public class CalendarFragment extends Fragment {
                    daytext.setText(time);
                 }
 
+
                 dlg.setIcon(R.drawable.edit);
                 dlg.setView(dialogView);
-                dlg.setPositiveButton("저장",null);
+                dlg.setPositiveButton("저장", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        editDiary = dialogView.findViewById(R.id.editDiary);
+                        inputDiary  = editDiary.getText().toString();
+                        Toast.makeText(getActivity(), inputDiary, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 dlg.setNegativeButton("취소",null);
                 dlg.show();
             }
